@@ -1,0 +1,67 @@
+{% extends "_base.html" %}
+
+{% block title %}Produto Criado{% endblock %}
+
+{% block head_extras %}
+<style>
+    body {
+        background-color: #eef7ff;
+        font-family: Arial, sans-serif;
+    }
+
+    .box {
+        width: 480px;
+        margin: 120px auto;
+        padding: 30px;
+        background-color: #d6ecff;
+        border: 1px solid #a3c9e8;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    h2 {
+        color: #1f4e79;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 17px;
+        color: #333;
+    }
+
+    .btn {
+        display: inline-block;
+        margin: 10px 5px;
+        padding: 12px 18px;
+        background-color: #3498db;
+        color: white;
+        font-size: 16px;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+
+    .btn:hover {
+        background-color: #2574a9;
+    }
+
+    .btn-secondary {
+        background-color: #888;
+    }
+
+    .btn-secondary:hover {
+        background-color: #555;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="box">
+    <h2>Produto criado com sucesso!</h2>
+
+    <p>O produto <strong>{{ product.name }}</strong> foi salvo no sistema.</p>
+
+    <a href="{% url 'product_list' %}" class="btn">⬅ Voltar à Lista</a>
+    <a href="{% url 'product_create' %}" class="btn btn-secondary">➕ Criar Novo Produto</a>
+</div>
+{% endblock %}

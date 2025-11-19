@@ -1,0 +1,77 @@
+{% extends "_base.html" %}
+
+{% block title %}Cadastro de Usuário{% endblock %}
+
+{% block head_extras %}
+<style>
+    body {
+        background-color: #eef7ff;
+        font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+        width: 360px;
+        margin: 80px auto;
+        padding: 25px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+        text-align: center;
+        color: #1f4e79;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #bcd0e8;
+        background-color: #f7fbff;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #3498db;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #2574a9;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Cadastro de Usuário</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Nome:</label>
+        <input type="text" name="name" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+{% endblock %}

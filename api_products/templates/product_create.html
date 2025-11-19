@@ -1,0 +1,100 @@
+{% extends "_base.html" %}
+
+{% block title %}Criar Produto{% endblock %}
+
+{% block head_extras %}
+<style>
+    body {
+        background-color: #eef7ff;
+        font-family: Arial, sans-serif;
+    }
+
+    .form-box {
+        max-width: 550px;
+        margin: 60px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+        text-align: center;
+        color: #1f4e79;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-top: 12px;
+        display: block;
+        color: #333;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #bcd0e8;
+        border-radius: 6px;
+        background: #f8fbff;
+        font-size: 15px;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #3498db;
+        color: white;
+        font-size: 17px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #2574a9;
+    }
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 15px;
+        background: #888;
+        color: white;
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .back-btn:hover {
+        background: #555;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="form-box">
+    <h2>Criar Produto</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Salvar Produto</button>
+    </form>
+
+    <a href="{% url 'product_list' %}" class="back-btn">⬅ Voltar à Lista</a>
+</div>
+
+{% endblock %}
